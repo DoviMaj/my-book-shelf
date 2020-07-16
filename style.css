@@ -1,0 +1,108 @@
+html{
+  font-family: 'Epilogue', sans-serif;
+  background: lightyellow;
+}
+
+#app-title{
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 2px #24FF99;
+}
+
+
+h1{
+  font-size: 50px;
+  margin-top: 10px;
+}
+
+body{
+  font-size: 18px;
+}
+
+input{
+  background: initial;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 18px;
+  padding: 4px;
+  outline: lightcyan;
+  border-style: none ;
+}
+
+button{
+  font-family: 'Epilogue', sans-serif;
+  font-size: 15px;
+  padding: 7px;
+  margin-left: 5px;
+  background: #91baf0;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  border-radius: 5px;
+  text-shadow: 0px 0px 0px transparent;
+  cursor: pointer;
+  transition-duration: 200ms;
+}
+
+button:hover {
+  background-color: #009DF7;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+label{
+  font-size: 15px;
+  padding-right: 8px;
+}
+
+#new-book{
+  text-align: center;
+}
+
+ul{
+  display: flex;
+  max-height: 2000px;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 30px;
+}
+
+li{
+  background: #24FF99;
+  width: 200px;
+  height: 160px;
+  list-style: none;
+  margin: 10px;
+  padding: 20px 10px 20px 10px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 7px 1px rgba(134, 158, 45, 0.38);
+  transition: all 200ms ease-in-out;
+}
+
+li:hover{
+  transform: scale(1.1);
+}
+
+
+div{
+  margin-bottom: 10px;
+}
+
+#book-title{
+  font-weight: bold;
+}
+
+#book-author{
+  font-style: italic;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+footer{
+  position: relative;
+  top: 300px;
+  text-align: center;
+  font-size: 14px;
+}
