@@ -90,14 +90,6 @@ function render() {
       let div4 = document.createElement('div')
       let removeButton = document.createElement('button')
       removeButton.innerText = 'Remove' 
-    removeButton.innerText = 'Remove' 
-      removeButton.innerText = 'Remove' 
-    removeButton.innerText = 'Remove' 
-      removeButton.innerText = 'Remove' 
-      removeButton.innerText = 'Remove' 
-      removeButton.innerText = 'Remove' 
-      removeButton.innerText = 'Remove' 
-      removeButton.innerText = 'Remove' 
       removeButton.addEventListener('click', () => removeItem(li.id))
 
       let toggleReadButton = document.createElement('button')
@@ -121,25 +113,9 @@ function render() {
       li.appendChild(div2)
       li.appendChild(div3)
       li.appendChild(div4)
-      li.appendChild(toggleReadButton)  
-    li.appendChild(toggleReadButton)  
-      li.appendChild(toggleReadButton)  
-    li.appendChild(toggleReadButton)  
-      li.appendChild(toggleReadButton)  
-      li.appendChild(toggleReadButton)  
-      li.appendChild(toggleReadButton)  
-      li.appendChild(toggleReadButton)  
-      li.appendChild(toggleReadButton)  
+      li.appendChild(toggleReadButton) 
       li.appendChild(removeButton)
-      ul.appendChild(li)    
-    ul.appendChild(li)    
-      ul.appendChild(li)    
-    ul.appendChild(li)    
-      ul.appendChild(li)    
-      ul.appendChild(li)    
-      ul.appendChild(li)    
-      ul.appendChild(li)    
-      ul.appendChild(li)    
+      ul.appendChild(li)      
     }
   })
   document.getElementById('title').value = ''
