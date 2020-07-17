@@ -3,8 +3,9 @@ let myLibrary = [
   {title: 'Ulysses', author: 'James Joyce', pages: '730', read: false},
   {title: 'Don Quixote', author: 'Miguel de Cervantes', pages: '863', read: false},
   {title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', pages: '218', read: false},
-  {title: 'War and Peace', author: 'Leo Tolstoy', pages: '1,225 ', read: false},
+  {title: 'War and Peace', author: 'Leo Tolstoy', pages: '1,225 ', read: false}
 ];
+
 
 function Book(title, author, pages, read) {
   // the constructor...
@@ -14,7 +15,9 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-Book.prototype.toggleRead =  () => this.read  = !this.read;
+Book.prototype.toggleRead =  function(){ 
+  this.read  = !this.read;
+}
 
 render()
 setUpButtons()
@@ -34,7 +37,7 @@ function setUpButtons(){
 
   let clearButton = document.getElementById('clear-button');
     clearButton.addEventListener('click', function() {
-      removeAll()
+      removeAll(true)
   })
 
   let restartButton = document.getElementById('restart-button');
@@ -52,7 +55,10 @@ function addBookToLibrary() {
   let read = document.getElementById('read').checked;
 
   if(title !== '' && author !== '' && pages !== ''){
-    myLibrary.push(new Book(title, author, pages, read))
+    const item = new Book(title, author, pages, read)
+    item.prototype = Object.create(Book.prototype);
+    myLibrary.push(item)
+    setLocalStorage()
     render()
   }
 }
@@ -62,46 +68,78 @@ function render() {
   ul.innerHTML = ''
   // get local storage if its set
   if(localStorage.getItem('data') !== null){
-    myLibrary = JSON.parse(localStorage.getItem("data"));
+    myLibrary = JSON.parse(localStorage.getItem("data"))
+    /*.map(function(i){
+      return new Book(
+        i.title,
+        i.author, 
+        i.pages,
+        i.read
+      )
+    })*/
   }
   myLibrary.forEach(function(i, index){ 
-    if(myLibrary[index] !== ''){
-    let li = document.createElement('li')
-    li.id = index;
-    let div1 = document.createElement('div')
-    div1.id = 'book-title'
-    let div2 = document.createElement('div')
-    div2.id = 'book-author'
-    let div3 = document.createElement('div')
-    let div4 = document.createElement('div')
-    let removeButton = document.createElement('button')
+    if(i !== ''){
+      let li = document.createElement('li')
+      li.id = index;
+      let div1 = document.createElement('div')
+      div1.id = 'book-title'
+      let div2 = document.createElement('div')
+      div2.id = 'book-author'
+      let div3 = document.createElement('div')
+      let div4 = document.createElement('div')
+      let removeButton = document.createElement('button')
+      removeButton.innerText = 'Remove' 
     removeButton.innerText = 'Remove' 
-    removeButton.addEventListener('click', () => removeItem(li.id))
+      removeButton.innerText = 'Remove' 
+    removeButton.innerText = 'Remove' 
+      removeButton.innerText = 'Remove' 
+      removeButton.innerText = 'Remove' 
+      removeButton.innerText = 'Remove' 
+      removeButton.innerText = 'Remove' 
+      removeButton.innerText = 'Remove' 
+      removeButton.addEventListener('click', () => removeItem(li.id))
 
-    let toggleReadButton = document.createElement('button')
-    toggleReadButton.innerText = 'Toggle Read'
-    toggleReadButton.addEventListener('click', function(){
-      myLibrary[li.id].read = !myLibrary[li.id].read
-      removeAll()
-      render()
-    })
-    div1.innerHTML = `${myLibrary[index].title}`;
-    div2.innerHTML = `By ${myLibrary[index].author}`;
-    div3.innerHTML = `${myLibrary[index].pages} Pages`;
-    if(myLibrary[index].read){
-      div4.innerHTML = `read`;
-    }
-    else{
-      div4.innerHTML = `not read`;
-    }
-      
-    li.appendChild(div1)
-    li.appendChild(div2)
-    li.appendChild(div3)
-    li.appendChild(div4)
+      let toggleReadButton = document.createElement('button')
+      toggleReadButton.innerText = 'Toggle Read'
+      toggleReadButton.addEventListener('click', function(){
+        i.toggleRead()
+        setLocalStorage()
+        render()
+      })
+      div1.innerHTML = `${i.title}`;
+      div2.innerHTML = `By ${i.author}`;
+      div3.innerHTML = `${i.pages} Pages`;
+      if(i.read){
+        div4.innerHTML = `read`;
+      }
+      else{
+        div4.innerHTML = `not read`;
+      }
+        
+      li.appendChild(div1)
+      li.appendChild(div2)
+      li.appendChild(div3)
+      li.appendChild(div4)
+      li.appendChild(toggleReadButton)  
     li.appendChild(toggleReadButton)  
-    li.appendChild(removeButton)
+      li.appendChild(toggleReadButton)  
+    li.appendChild(toggleReadButton)  
+      li.appendChild(toggleReadButton)  
+      li.appendChild(toggleReadButton)  
+      li.appendChild(toggleReadButton)  
+      li.appendChild(toggleReadButton)  
+      li.appendChild(toggleReadButton)  
+      li.appendChild(removeButton)
+      ul.appendChild(li)    
     ul.appendChild(li)    
+      ul.appendChild(li)    
+    ul.appendChild(li)    
+      ul.appendChild(li)    
+      ul.appendChild(li)    
+      ul.appendChild(li)    
+      ul.appendChild(li)    
+      ul.appendChild(li)    
     }
   })
   document.getElementById('title').value = ''
@@ -116,6 +154,15 @@ function removeItem(v) {
   myLibrary.splice(v, 1) 
   element.remove()
   restoreButton()  
+}
+
+function removeAll(v) {
+  let ul = document.querySelector('ul');
+  ul.innerHTML = ''
+  myLibrary = []
+  if(v){
+    restoreButton()
+  }
 }
 
 function restoreButton() {
@@ -135,12 +182,7 @@ function restoreButton() {
   }, 2000);    
 }
 
-function removeAll() {
-  let ul = document.querySelector('ul');
-  ul.innerHTML = ''
-  myLibrary = []
-  restoreButton()
-}
+
 
 function setLocalStorage() {
   let data = JSON.stringify(myLibrary)
