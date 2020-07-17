@@ -69,14 +69,14 @@ function render() {
   // get local storage if its set
   if(localStorage.getItem('data') !== null){
     myLibrary = JSON.parse(localStorage.getItem("data"))
-    /*.map(function(i){
+    .map(function(i){
       return new Book(
         i.title,
         i.author, 
         i.pages,
         i.read
       )
-    })*/
+    })
   }
   myLibrary.forEach(function(i, index){ 
     if(i !== ''){
