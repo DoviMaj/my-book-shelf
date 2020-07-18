@@ -91,9 +91,11 @@ function render() {
       let removeButton = document.createElement('button')
       removeButton.innerText = 'Remove' 
       removeButton.addEventListener('click', () => removeItem(li.id))
+      removeButton.id = 'item-button1'
 
       let toggleReadButton = document.createElement('button')
       toggleReadButton.innerText = 'Toggle Read'
+      toggleReadButton.id = 'item-button2'
       toggleReadButton.addEventListener('click', function(){
         i.toggleRead()
         setLocalStorage()

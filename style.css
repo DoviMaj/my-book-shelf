@@ -20,12 +20,17 @@ body{
 }
 
 input{
-  background: initial;
   font-family: 'Epilogue', sans-serif;
   font-size: 18px;
   padding: 4px;
-  outline: lightcyan;
   border-style: none ;
+  border-radius: 8px;
+  height: 27px;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  top: 8px;
 }
 
 button{
@@ -67,6 +72,7 @@ ul{
 }
 
 li{
+  position: relative;
   background: #24FF99;
   width: 200px;
   height: 160px;
@@ -89,6 +95,7 @@ div{
 
 #book-title{
   font-weight: bold;
+  margin-bottom: 13px;
 }
 
 #book-author{
@@ -104,5 +111,17 @@ footer{
   position: relative;
   top: 300px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#item-button1{
+  position: absolute;
+  top: 153px;
+  left: 125px;
+}
+#item-button2{
+  position: absolute;
+  top: 153px;
+  left: 12px;
 }
